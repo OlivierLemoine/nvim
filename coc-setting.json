@@ -1,0 +1,9 @@
+{
+    "suggest.autoTrigger": "trigger",
+    "coc.preferences.hoverTarget": "echo",
+    "signature.target": "echo",
+    "suggest.echodocSupport": true,
+    "diagnostic.errorSign": "•",
+    "diagnostic.warningSign": "•",
+    "diagnostic.infoSign": "•"
+}
