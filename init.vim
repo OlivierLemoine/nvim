@@ -11,6 +11,7 @@ Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'easymotion/vim-easymotion'
+Plug 'rhysd/vim-crystal'
 " better statusline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -19,9 +20,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 call plug#end()
 
-nmap <S-j> :m .+1<CR>
-nmap <S-k> :m .-2<CR>
-nmap ; :NERDTreeToggle<CR>
+nmap <S-j> :bp<CR>
+nmap <S-k> :bn<CR>
+nmap <silent> ; :NERDTreeToggle<CR>
 
 set hidden
 set number relativenumber                   " show line number
@@ -46,6 +47,35 @@ set cmdheight=2
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
+set splitright
+set splitbelow
+set mouse=a
+
+nnoremap <C-c> <Esc>
+inoremap <C-c> <Esc>
+vnoremap <C-c> <Esc>
+snoremap <C-c> <Esc>
+xnoremap <C-c> <Esc>
+cnoremap <C-c> <Esc>
+onoremap <C-c> <Esc>
+lnoremap <C-c> <Esc>
+tnoremap <C-c> <Esc>
+
+nnoremap <Up> <Nop>
+inoremap <Up> <Nop>
+vnoremap <Up> <Nop>
+
+nnoremap <Left> <Nop>
+inoremap <Left> <Nop>
+vnoremap <Left> <Nop>
+
+nnoremap <Right> <Nop>
+inoremap <Right> <Nop>
+vnoremap <Right> <Nop>
+
+nnoremap <Down> <Nop>
+inoremap <Down> <Nop>
+vnoremap <Down> <Nop>
 
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
@@ -68,7 +98,6 @@ let g:oceanic_next_terminal_italic = 1
 colorscheme OceanicNext
 
 " Cog
-
 let g:coc_global_extensions = ['coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml', 'coc-rls', 'coc-pairs', 'coc-python']
 
 " Use tab for trigger completion with characters ahead and navigate.
