@@ -18,6 +18,7 @@ Plug 'vim-airline/vim-airline-themes'
 " git management plugin
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'gilsondev/searchtasks.vim'
 call plug#end()
 
 nmap <S-j> :bp<CR>
