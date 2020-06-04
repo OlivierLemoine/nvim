@@ -3,7 +3,6 @@ call plug#begin('~/.vim/plugged')
 "Plug 'ryanoasis/vim-devicons'
 Plug 'mhartington/oceanic-next'
 " Layout
-Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'preservim/nerdtree'
 " Code
 Plug 'easymotion/vim-easymotion'
@@ -11,6 +10,7 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'neoclide/coc-pairs'
 Plug 'neoclide/coc-prettier'
 Plug 'neoclide/coc-json'
+Plug 'fannheyward/coc-rust-analyzer'
 " better statusline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -96,12 +96,6 @@ nmap \ :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
-" ctrlspace
-let g:CtrlSpaceDefaultMappingKey = ";"
-let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
-let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
-let g:CtrlSpaceSaveWorkspaceOnExit = 1
-
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -115,7 +109,6 @@ colorscheme OceanicNext
 
 " Cog
 let g:coc_global_extensions = []
-""let g:coc_global_extensions = ['coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml', 'coc-rls', 'coc-pairs', 'coc-python']
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -149,7 +142,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
-nnoremap <silent> , :call <SID>show_documentation()<CR>
+nnoremap <silent> m :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
