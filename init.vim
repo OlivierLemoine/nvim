@@ -1,32 +1,23 @@
 call plug#begin('~/.vim/plugged')
 " Theme
-Plug 'ryanoasis/vim-devicons'
+"Plug 'ryanoasis/vim-devicons'
 Plug 'mhartington/oceanic-next'
-Plug 'junegunn/vim-github-dashboard'
 " Layout
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'vim-ctrlspace/vim-ctrlspace'
+Plug 'preservim/nerdtree'
 " Code
-Plug 'rust-lang/rust.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'easymotion/vim-easymotion'
-Plug 'rhysd/vim-crystal'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'neoclide/coc-pairs'
+Plug 'neoclide/coc-prettier'
+Plug 'neoclide/coc-json'
 " better statusline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" git management plugin
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'gilsondev/searchtasks.vim'
 call plug#end()
 
-nmap <S-j> :bp<CR>
-nmap <S-k> :bn<CR>
-nmap <silent> ; :NERDTreeToggle<CR>
-
 set hidden
-set number relativenumber                   " show line number
+set number relativenumber    " show line number
 set showcmd                  " show command in bottom bar
 set cursorline               " highlight current line
 set wildmenu                 " visual autocomplete for command menu
@@ -36,12 +27,12 @@ set nobackup
 set noswapfile
 set encoding=UTF-8
 set clipboard=unnamed
-set tabstop=4       " number of visual spaces per TAB
-set softtabstop=4   " number of spaces in tab when editing
-set shiftwidth=4    " number of spaces to use for autoindent
-set expandtab       " tabs are space
+set tabstop=4                " number of visual spaces per TAB
+set softtabstop=4            " number of spaces in tab when editing
+set shiftwidth=4             " number of spaces to use for autoindent
+set expandtab                " tabs are space
 set autoindent
-set copyindent      " copy indent from the previous line
+set copyindent               " copy indent from the previous line
 set nobackup
 set nowritebackup
 set cmdheight=2
@@ -78,14 +69,38 @@ nnoremap <Down> <Nop>
 inoremap <Down> <Nop>
 vnoremap <Down> <Nop>
 
+let mapleader = ","
+     
+nmap <S-j> :bn<CR>
+nmap <S-k> :bp<CR>
+nmap <A-l> <C-w>l
+nmap <A-h> <C-w>h
+nmap <A-k> <C-w>k
+nmap <A-j> <C-w>j
+nmap <A-=> <C-w>2+
+nmap <A--> <C-w>2-
+
+nmap ` "
+
+nmap <leader>w'' ciw''<Esc><S-p>
+nmap <leader>w"" ciw""<Esc><S-p>
+
+" Neovide
+let g:neovide_transparency=0.8
+let g:neovide_cursor_trail_length=0.8
+
 " NERDTree
-autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+nmap \ :NERDTreeToggle<CR>
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
-cabbrev tt NERDTreeToggle
+
+" ctrlspace
+let g:CtrlSpaceDefaultMappingKey = ";"
+let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
+let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
+let g:CtrlSpaceSaveWorkspaceOnExit = 1
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
@@ -99,7 +114,8 @@ let g:oceanic_next_terminal_italic = 1
 colorscheme OceanicNext
 
 " Cog
-let g:coc_global_extensions = ['coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml', 'coc-rls', 'coc-pairs', 'coc-python']
+let g:coc_global_extensions = []
+""let g:coc_global_extensions = ['coc-emoji', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-tslint', 'coc-tslint-plugin', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml', 'coc-rls', 'coc-pairs', 'coc-python']
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
