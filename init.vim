@@ -67,12 +67,12 @@ let mapleader = ","
      
 nnoremap <S-j> :bn<CR>
 nnoremap <S-k> :bp<CR>
-nnoremap <A-l> <C-w>l
-nnoremap <A-h> <C-w>h
-nnoremap <A-k> <C-w>k
-nnoremap <A-j> <C-w>j
-nnoremap <A-=> <C-w>2+
-nnoremap <A--> <C-w>2-
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
+nnoremap <C-=> <C-w>2+
+nnoremap <C--> <C-w>2-
 
 tnoremap <Esc> <C-\><C-n>
 
@@ -80,6 +80,20 @@ nnoremap ` "
 
 nnoremap <leader>w'' ciw''<Esc><S-p>
 nnoremap <leader>w"" ciw""<Esc><S-p>
+
+function OpenTerminal()
+    if exists('t:auto_opened_terminal') && bufexists(t:auto_opened_terminal)
+        split 
+        resize 10
+        execute 'buffer ' t:auto_opened_terminal
+    else
+        split 
+        resize 10
+        terminal
+        let t:auto_opened_terminal = bufnr("%")
+    end
+endfunction
+nnoremap <C-`> :call OpenTerminal()<CR>
 
 " Neovide
 let g:neovide_transparency=0.8
