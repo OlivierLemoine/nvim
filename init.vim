@@ -46,12 +46,6 @@ set mouse=a
 nnoremap <C-c> <Esc>
 inoremap <C-c> <Esc>
 vnoremap <C-c> <Esc>
-snoremap <C-c> <Esc>
-xnoremap <C-c> <Esc>
-cnoremap <C-c> <Esc>
-onoremap <C-c> <Esc>
-lnoremap <C-c> <Esc>
-tnoremap <C-c> <Esc>
 
 nnoremap <Up> <Nop>
 inoremap <Up> <Nop>
@@ -71,19 +65,21 @@ vnoremap <Down> <Nop>
 
 let mapleader = ","
      
-nmap <S-j> :bn<CR>
-nmap <S-k> :bp<CR>
-nmap <A-l> <C-w>l
-nmap <A-h> <C-w>h
-nmap <A-k> <C-w>k
-nmap <A-j> <C-w>j
-nmap <A-=> <C-w>2+
-nmap <A--> <C-w>2-
+nnoremap <S-j> :bn<CR>
+nnoremap <S-k> :bp<CR>
+nnoremap <A-l> <C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-k> <C-w>k
+nnoremap <A-j> <C-w>j
+nnoremap <A-=> <C-w>2+
+nnoremap <A--> <C-w>2-
 
-nmap ` "
+tnoremap <Esc> <C-\><C-n>
 
-nmap <leader>w'' ciw''<Esc><S-p>
-nmap <leader>w"" ciw""<Esc><S-p>
+nnoremap ` "
+
+nnoremap <leader>w'' ciw''<Esc><S-p>
+nnoremap <leader>w"" ciw""<Esc><S-p>
 
 " Neovide
 let g:neovide_transparency=0.8
