@@ -63,8 +63,8 @@ vnoremap <Down> <Nop>
 
 let mapleader = ","
      
-nnoremap <S-j> :bn<CR>
-nnoremap <S-k> :bp<CR>
+nnoremap <silent> <S-j> :bn<CR>
+nnoremap <silent> <S-k> :bp<CR>
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 nnoremap <C-k> <C-w>k
@@ -79,11 +79,28 @@ nnoremap ` "
 nnoremap <leader>w'' ciw''<Esc><S-p>
 nnoremap <leader>w"" ciw""<Esc><S-p>
 
+let g:netrw_banner = 0
+
+function OpenFiles()
+    if &ft ==# 'netrw'
+        execute ':q'
+    else
+        Sexplore
+        resize 10
+    endif
+endfunction
+
+nnoremap <silent> ; :call OpenFiles()<CR>
+
 function OpenTerminal()
     if exists('t:auto_opened_terminal') && bufexists(t:auto_opened_terminal)
-        split 
-        resize 10
-        execute 'buffer ' t:auto_opened_terminal
+        if &buftype ==# 'terminal'
+            execute ':q'
+        else
+            split 
+            resize 10
+            execute 'buffer ' t:auto_opened_terminal
+        end
     else
         split 
         resize 10
