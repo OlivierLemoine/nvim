@@ -9,6 +9,7 @@ Plug 'neoclide/coc-pairs'
 Plug 'neoclide/coc-prettier'
 Plug 'neoclide/coc-json'
 Plug 'fannheyward/coc-rust-analyzer'
+Plug 'tpope/vim-fugitive'
 " better statusline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -69,8 +70,12 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 nnoremap <C-k> <C-w>k
 nnoremap <C-j> <C-w>j
-nnoremap <C-=> <C-w>2+
-nnoremap <C--> <C-w>2-
+nnoremap <C-=> <C-w>4+
+nnoremap <C--> <C-w>4-
+nnoremap <C-.> <C-w>8>
+nnoremap <C-,> <C-w>8<
+nnoremap <C-n> <C-w>=
+nnoremap <C-m> <C-w>_
 
 tnoremap <Esc> <C-\><C-n>
 
@@ -108,7 +113,7 @@ function OpenTerminal()
         let t:auto_opened_terminal = bufnr("%")
     end
 endfunction
-nnoremap <C-`> :call OpenTerminal()<CR>
+nnoremap <silent> <C-`> :call OpenTerminal()<CR>
 
 " Neovide
 let g:neovide_transparency=0.8
