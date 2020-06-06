@@ -2,8 +2,6 @@ call plug#begin('~/.vim/plugged')
 " Theme
 "Plug 'ryanoasis/vim-devicons'
 Plug 'mhartington/oceanic-next'
-" Layout
-Plug 'preservim/nerdtree'
 " Code
 Plug 'easymotion/vim-easymotion'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -98,13 +96,6 @@ nnoremap <C-`> :call OpenTerminal()<CR>
 " Neovide
 let g:neovide_transparency=0.8
 let g:neovide_cursor_trail_length=0.8
-
-" NERDTree
-nmap \ :NERDTreeToggle<CR>
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
