@@ -76,6 +76,7 @@ nnoremap <C-.> <C-w>8>
 nnoremap <C-,> <C-w>8<
 nnoremap <C-n> <C-w>=
 nnoremap <C-m> <C-w>_
+nnoremap <C-o> <C-w>o
 
 tnoremap <Esc> <C-\><C-n>
 
@@ -114,6 +115,7 @@ function OpenTerminal()
     end
 endfunction
 nnoremap <silent> <C-`> :call OpenTerminal()<CR>
+tnoremap <silent> <C-`> <C-\><C-n>:call OpenTerminal()<CR>
 
 " Neovide
 let g:neovide_transparency=0.8
