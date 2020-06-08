@@ -1,9 +1,9 @@
 call plug#begin('~/.vim/plugged')
 " Theme
-"Plug 'ryanoasis/vim-devicons'
 Plug 'mhartington/oceanic-next'
 " Layout
 Plug 'preservim/nerdtree'
+Plug 'mhinz/vim-startify'
 " Code
 Plug 'easymotion/vim-easymotion'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -11,6 +11,7 @@ Plug 'neoclide/coc-pairs'
 Plug 'neoclide/coc-prettier'
 Plug 'neoclide/coc-json'
 Plug 'fannheyward/coc-rust-analyzer'
+Plug 'clangd/coc-clangd'
 " better statusline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -65,8 +66,8 @@ vnoremap <Down> <Nop>
 
 let mapleader = ","
      
-nnoremap <S-j> :bn<CR>
-nnoremap <S-k> :bp<CR>
+nnoremap <silent> <S-k> :bn<CR>
+nnoremap <silent> <S-j> :bp<CR>
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 nnoremap <C-k> <C-w>k
@@ -93,7 +94,7 @@ function OpenTerminal()
         let t:auto_opened_terminal = bufnr("%")
     end
 endfunction
-nnoremap <C-`> :call OpenTerminal()<CR>
+nnoremap <silent> <C-`> :call OpenTerminal()<CR>
 
 " Neovide
 let g:neovide_transparency=0.8
