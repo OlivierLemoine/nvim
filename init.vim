@@ -2,7 +2,6 @@ call plug#begin('~/.vim/plugged')
 " Theme
 Plug 'mhartington/oceanic-next'
 " Layout
-Plug 'preservim/nerdtree'
 Plug 'mhinz/vim-startify'
 " Code
 Plug 'easymotion/vim-easymotion'
@@ -12,6 +11,7 @@ Plug 'neoclide/coc-prettier'
 Plug 'neoclide/coc-json'
 Plug 'fannheyward/coc-rust-analyzer'
 Plug 'clangd/coc-clangd'
+Plug 'tpope/vim-fugitive'
 " better statusline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -66,14 +66,19 @@ vnoremap <Down> <Nop>
 
 let mapleader = ","
      
-nnoremap <silent> <S-k> :bn<CR>
-nnoremap <silent> <S-j> :bp<CR>
+nnoremap <silent> <S-j> :bn<CR>
+nnoremap <silent> <S-k> :bp<CR>
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 nnoremap <C-k> <C-w>k
 nnoremap <C-j> <C-w>j
-nnoremap <C-=> <C-w>2+
-nnoremap <C--> <C-w>2-
+nnoremap <C-=> <C-w>4+
+nnoremap <C--> <C-w>4-
+nnoremap <C-.> <C-w>8>
+nnoremap <C-,> <C-w>8<
+nnoremap <C-n> <C-w>=
+nnoremap <C-m> <C-w>_
+nnoremap <C-o> <C-w>o
 
 tnoremap <Esc> <C-\><C-n>
 
@@ -82,11 +87,28 @@ nnoremap ` "
 nnoremap <leader>w'' ciw''<Esc><S-p>
 nnoremap <leader>w"" ciw""<Esc><S-p>
 
+let g:netrw_banner = 0
+
+function OpenFiles()
+    if &ft ==# 'netrw'
+        execute ':q'
+    else
+        Sexplore
+        resize 10
+    endif
+endfunction
+
+nnoremap <silent> ; :call OpenFiles()<CR>
+
 function OpenTerminal()
     if exists('t:auto_opened_terminal') && bufexists(t:auto_opened_terminal)
-        split 
-        resize 10
-        execute 'buffer ' t:auto_opened_terminal
+        if &buftype ==# 'terminal'
+            execute ':q'
+        else
+            split 
+            resize 10
+            execute 'buffer ' t:auto_opened_terminal
+        end
     else
         split 
         resize 10
@@ -95,17 +117,11 @@ function OpenTerminal()
     end
 endfunction
 nnoremap <silent> <C-`> :call OpenTerminal()<CR>
+tnoremap <silent> <C-`> <C-\><C-n>:call OpenTerminal()<CR>
 
 " Neovide
 let g:neovide_transparency=0.8
 let g:neovide_cursor_trail_length=0.8
-
-" NERDTree
-nmap \ :NERDTreeToggle<CR>
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
