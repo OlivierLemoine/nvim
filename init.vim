@@ -9,7 +9,7 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'neoclide/coc-pairs'
 Plug 'neoclide/coc-prettier'
 Plug 'neoclide/coc-json'
-Plug 'fannheyward/coc-rust-analyzer'
+Plug 'neoclide/coc-rls'
 Plug 'clangd/coc-clangd'
 Plug 'tpope/vim-fugitive'
 " better statusline
@@ -66,8 +66,8 @@ vnoremap <Down> <Nop>
 
 let mapleader = ","
      
-nnoremap <silent> <S-j> :bn<CR>
-nnoremap <silent> <S-k> :bp<CR>
+nnoremap <silent> <S-j> :bp<CR>
+nnoremap <silent> <S-k> :bn<CR>
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 nnoremap <C-k> <C-w>k
@@ -81,8 +81,6 @@ nnoremap <C-m> <C-w>_
 nnoremap <C-o> <C-w>o
 
 tnoremap <Esc> <C-\><C-n>
-
-nnoremap ` "
 
 nnoremap <leader>w'' ciw''<Esc><S-p>
 nnoremap <leader>w"" ciw""<Esc><S-p>
@@ -103,7 +101,7 @@ nnoremap <silent> ; :call OpenFiles()<CR>
 function OpenTerminal()
     if exists('t:auto_opened_terminal') && bufexists(t:auto_opened_terminal)
         if &buftype ==# 'terminal'
-            execute ':q'
+            execute ':bd!'
         else
             split 
             resize 10
