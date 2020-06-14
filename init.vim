@@ -1,7 +1,8 @@
 call plug#begin('~/.vim/plugged')
 " Theme
-"Plug 'ryanoasis/vim-devicons'
 Plug 'mhartington/oceanic-next'
+" Layout
+Plug 'mhinz/vim-startify'
 " Code
 Plug 'easymotion/vim-easymotion'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -9,6 +10,7 @@ Plug 'neoclide/coc-pairs'
 Plug 'neoclide/coc-prettier'
 Plug 'neoclide/coc-json'
 Plug 'fannheyward/coc-rust-analyzer'
+Plug 'clangd/coc-clangd'
 Plug 'tpope/vim-fugitive'
 " better statusline
 Plug 'vim-airline/vim-airline'
