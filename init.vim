@@ -62,6 +62,8 @@ nnoremap <Down> <Nop>
 inoremap <Down> <Nop>
 vnoremap <Down> <Nop>
 
+inoremap jj <Esc>
+
 let mapleader = ","
      
 nnoremap <silent> <S-j> :bn<CR>
@@ -80,7 +82,7 @@ nnoremap <C-o> <C-w>o
 
 tnoremap <Esc> <C-\><C-n>
 
-nnoremap ` "
+"nnoremap ` "
 
 nnoremap <leader>w'' ciw''<Esc><S-p>
 nnoremap <leader>w"" ciw""<Esc><S-p>
