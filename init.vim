@@ -105,7 +105,7 @@ nnoremap <silent> ; :call OpenFiles()<CR>
 function OpenTerminal()
     if exists('t:auto_opened_terminal') && bufexists(t:auto_opened_terminal)
         if &buftype ==# 'terminal'
-            execute ':q'
+            execute ':bd!'
         else
             split 
             resize 10
