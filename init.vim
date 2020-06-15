@@ -44,10 +44,6 @@ set splitright
 set splitbelow
 set mouse=a
 
-nnoremap <C-c> <Esc>
-inoremap <C-c> <Esc>
-vnoremap <C-c> <Esc>
-
 nnoremap <Up> <Nop>
 inoremap <Up> <Nop>
 vnoremap <Up> <Nop>
@@ -68,8 +64,8 @@ inoremap jj <Esc>
 
 let mapleader = ","
      
-nnoremap <silent> <S-j> :bn<CR>
-nnoremap <silent> <S-k> :bp<CR>
+nnoremap <silent> <S-j> :bp<CR>
+nnoremap <silent> <S-k> :bn<CR>
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 nnoremap <C-k> <C-w>k
