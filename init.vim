@@ -64,10 +64,12 @@ nnoremap <Down> <Nop>
 inoremap <Down> <Nop>
 vnoremap <Down> <Nop>
 
+inoremap jj <Esc>
+
 let mapleader = ","
      
-nnoremap <silent> <S-j> :bp<CR>
-nnoremap <silent> <S-k> :bn<CR>
+nnoremap <silent> <S-j> :bn<CR>
+nnoremap <silent> <S-k> :bp<CR>
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 nnoremap <C-k> <C-w>k
