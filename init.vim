@@ -10,6 +10,7 @@ Plug 'neoclide/coc-pairs'
 Plug 'neoclide/coc-prettier'
 Plug 'neoclide/coc-json'
 Plug 'neoclide/coc-rls'
+Plug 'coc-extensions/coc-powershell'
 Plug 'clangd/coc-clangd'
 Plug 'tpope/vim-fugitive'
 " better statusline
@@ -68,8 +69,8 @@ inoremap jj <Esc>
 
 let mapleader = ","
      
-nnoremap <silent> <S-j> :bn<CR>
-nnoremap <silent> <S-k> :bp<CR>
+nnoremap <silent> <S-j> :bp<CR>
+nnoremap <silent> <S-k> :bn<CR>
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 nnoremap <C-k> <C-w>k
@@ -82,10 +83,21 @@ nnoremap <C-n> <C-w>=
 nnoremap <C-m> <C-w>_
 nnoremap <C-o> <C-w>o
 
+tnoremap <C-l> <C-\><C-n><C-w>l
+tnoremap <C-h> <C-\><C-n><C-w>h
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap <C-j> <C-\><C-n><C-w>j
+tnoremap <C-=> <C-\><C-n><C-w>4+
+tnoremap <C--> <C-\><C-n><C-w>4-
+tnoremap <C-.> <C-\><C-n><C-w>8>
+tnoremap <C-,> <C-\><C-n><C-w>8<
+tnoremap <C-n> <C-\><C-n><C-w>=
+tnoremap <C-m> <C-\><C-n><C-w>_
+tnoremap <C-o> <C-\><C-n><C-w>o
+
 tnoremap <Esc> <C-\><C-n>
 
-nnoremap <leader>w'' ciw''<Esc><S-p>
-nnoremap <leader>w"" ciw""<Esc><S-p>
+nnoremap <silent> <C-w> :bd<CR>
 
 let g:netrw_banner = 0
 
@@ -118,6 +130,8 @@ function OpenTerminal()
 endfunction
 nnoremap <silent> <C-`> :call OpenTerminal()<CR>
 tnoremap <silent> <C-`> <C-\><C-n>:call OpenTerminal()<CR>
+
+nnoremap <silent> <C-b> :buffers<CR>
 
 " Neovide
 let g:neovide_transparency=0.8
