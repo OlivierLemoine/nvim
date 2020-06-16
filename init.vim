@@ -45,10 +45,6 @@ set splitright
 set splitbelow
 set mouse=a
 
-nnoremap <C-c> <Esc>
-inoremap <C-c> <Esc>
-vnoremap <C-c> <Esc>
-
 nnoremap <Up> <Nop>
 inoremap <Up> <Nop>
 vnoremap <Up> <Nop>
